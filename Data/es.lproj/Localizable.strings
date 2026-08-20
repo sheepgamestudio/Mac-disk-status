@@ -1,0 +1,6 @@
+"loading" = "Cargando...";
+"connected_disks_header" = "Discos conectados";
+"disk_free_of_total" = "%@ — libre: %@ de %@";
+"launch_at_login" = "Iniciar al iniciar sesión";
+"quit" = "Salir";
+"login_item_error_title" = "No se pudo cambiar el inicio automático";
