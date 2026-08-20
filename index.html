@@ -6,16 +6,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body { background-color: #1a1c23; color: #d0d0d8; font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-image: radial-gradient(#2a2d3d 15%, transparent 16%), radial-gradient(#2a2d3d 15%, transparent 16%); background-size: 20px 20px; }
-        .lang-select { position: absolute; top: 20px; right: 20px; background: #242736; border: 2px solid #3b3f5c; color: white; padding: 5px; cursor: pointer; }
+        .lang-select { position: absolute; top: 20px; right: 20px; background: #242736; border: 2px solid #3b3f5c; color: white; padding: 5px; cursor: pointer; border-radius: 4px; }
         .card { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; padding: 40px; border-radius: 8px; text-align: center; max-width: 480px; }
         h1 { font-family: 'Press Start 2P', monospace; font-size: 1.2rem; color: #ffbe55; margin-bottom: 20px; }
+        p { color: #8f93a2; font-size: 0.95rem; margin-bottom: 30px; line-height: 1.6; }
         .btn { cursor: pointer; font-family: 'Press Start 2P', monospace; font-size: 0.75rem; background-color: #ff5555; color: white; padding: 16px 24px; border: none; border-bottom: 4px solid #b33636; border-radius: 4px; transition: transform 0.1s; }
+        .btn:active { transform: translateY(2px); border-bottom-width: 2px; }
         
         /* Модальное окно */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; }
-        .modal-content { background: #242736; padding: 30px; border: 4px solid #3b3f5c; max-width: 300px; text-align: center; }
-        .btn-pay { background: #50fa7b; color: #1a1c23; padding: 10px; width: 100%; margin-bottom: 10px; cursor: pointer; border: none; font-weight: bold; }
-        .btn-free { background: none; color: #8f93a2; border: 1px solid #8f93a2; padding: 5px; cursor: pointer; font-size: 0.7rem; }
+        .modal-content { background: #242736; padding: 30px; border: 4px solid #3b3f5c; border-radius: 8px; max-width: 320px; text-align: center; }
+        .modal-content h3 { color: #ffbe55; font-family: 'Press Start 2P', monospace; font-size: 0.9rem; margin-bottom: 15px; }
+        .modal-content p { font-size: 0.85rem; margin-bottom: 20px; }
+        .btn-pay { background: #50fa7b; color: #1a1c23; padding: 12px; width: 100%; margin-bottom: 12px; cursor: pointer; border: none; font-weight: bold; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 0.9rem; }
+        .btn-pay:hover { background: #69ff8c; }
+        .btn-free { background: none; color: #8f93a2; border: 1px solid #8f93a2; padding: 8px; cursor: pointer; font-size: 0.75rem; border-radius: 4px; width: 100%; }
+        .btn-free:hover { color: #d0d0d8; border-color: #d0d0d8; }
     </style>
 </head>
 <body>
@@ -35,36 +41,62 @@
 
     <div class="card">
         <h1>MAC DISK STATUS</h1>
-        <p id="desc">A cozy and lightweight menu bar utility for macOS.</p>
-        <button class="btn" onclick="openModal()">DOWNLOAD APP</button>
+        <p id="desc">A cozy and lightweight menu bar utility for macOS to keep an eye on your disk space.</p>
+        <button class="btn" id="dl-btn" onclick="openModal()">DOWNLOAD APP</button>
     </div>
 
-    <div id="modal" class="modal">
+    <div id="modal" class="modal" onclick="closeModal(event)">
         <div class="modal-content">
-            <h3>Support SG Studio</h3>
-            <p>Your support helps keep the lights on!</p>
-            <button class="btn-pay" onclick="window.location.href='https://paypal.me/YOUR_LINK_HERE'">Pay $4.99</button>
-            <button class="btn-free" onclick="downloadNow()">Just download for free</button>
+            <h3 id="modal-title">Support SG Studio</h3>
+            <p id="modal-text">Your support helps keep development alive!</p>
+            <button class="btn-pay" onclick="payWithPayPal()">Pay $4.99 via PayPal</button>
+            <button class="btn-free" id="free-btn" onclick="downloadNow()">Just download for free</button>
         </div>
     </div>
 
     <script>
         const translations = {
-            en: { desc: "A cozy and lightweight menu bar utility for macOS.", btn: "DOWNLOAD APP" },
-            ru: { desc: "Уютная и легкая утилита для мониторинга диска в macOS.", btn: "СКАЧАТЬ" }
-            // Можешь дописать остальные сюда
+            en: { desc: "A cozy and lightweight menu bar utility for macOS to keep an eye on your disk space.", btn: "DOWNLOAD APP", title: "Support SG Studio", text: "Your support helps keep development alive!", free: "Just download for free" },
+            ru: { desc: "Уютная и легкая утилита для мониторинга диска в macOS.", btn: "СКАЧАТЬ", title: "Поддержать SG Studio", text: "Ваша поддержка помогает развитию проекта!", free: "Просто скачать бесплатно" },
+            de: { desc: "Ein gemütliches und легкое Menu-Bar-Tool für macOS.", btn: "APP HERUNTERLADEN", title: "SG Studio unterstützen", text: "Deine Hilfe hält das Projekt am Leben!", text: "Einfach kostenlos herunterladen", free: "Kostenlos herunterladen" },
+            es: { desc: "Una utilidad acogedora y ligera para la barra de menú de macOS.", btn: "DESCARGAR", title: "Apoya a SG Studio", text: "¡Tu apoyo ayuda a mantener vivo el proyecto!", free: "Descargar gratis" },
+            fr: { desc: "Un utilitaire de barre de menu confortable et léger pour macOS.", btn: "TÉLÉCHARGER", title: "Soutenir SG Studio", text: "Votre soutien aide à faire vivre le projet !", free: "Télécharger gratuitement" },
+            it: { desc: "Una comoda e leggera utility per la barra dei menu di macOS.", btn: "SCARICA APP", title: "Supporta SG Studio", text: "Il tuo supporto aiuta a mantenere vivo il progetto!", free: "Scarica gratis" },
+            pt: { desc: "Um utilitário de barra de menus aconchegante e leve para macOS.", btn: "BAIXAR APLICATIVO", title: "Apoie a SG Studio", text: "Seu apoio ajuda a manter o projeto vivo!", free: "Baixar gratuitamente" },
+            ja: { desc: "macOS用の心地よく軽量なメニューバーユーティリティ。", btn: "アプリをダウンロード", title: "SG Studioをサポート", text: "あなたの支援が開発の支えになります！", free: "無料でダウンロード" },
+            uk: { desc: "Затишна та легка утиліта для моніторингу диска в macOS.", btn: "ЗАВАНТАЖИТИ", title: "Підтримати SG Studio", text: "Ваша підтримка допомагає розвитку проєкту!", free: "Просто завантажити безкоштовно" },
+            zh: { desc: "适用于 macOS 的轻量级实用菜单栏工具。", btn: "下载应用", title: "支持 SG Studio", text: "您的支持让开发得以继续！", free: "直接免费下载" }
         };
 
         function changeLang(lang) {
-            document.getElementById('desc').innerText = translations[lang]?.desc || translations['en'].desc;
+            const t = translations[lang] || translations['en'];
+            document.getElementById('desc').innerText = t.desc;
+            document.getElementById('dl-btn').innerText = t.btn;
+            document.getElementById('modal-title').innerText = t.title;
+            document.getElementById('modal-text').innerText = t.text;
+            document.getElementById('free-btn').innerText = t.free;
+            document.getElementById('lang').value = lang;
         }
 
         function openModal() { document.getElementById('modal').style.display = 'flex'; }
-        function downloadNow() { window.location.href = 'https://github.com/sheepgamestudio/Mac-disk-status/releases/latest/download/Mac-disk-status.app.zip'; }
+        function closeModal(e) { if(e.target.id === 'modal') document.getElementById('modal').style.display = 'none'; }
         
-        // Авто-определение языка
+        function payWithPayPal() {
+            // Прямая отправка на твой PayPal с указанной почтой и суммой
+            window.location.href = 'https://www.paypal.com/ncp/payment?cmd=_xclick&business=sheepgamestudio@gmail.com&item_name=Mac+Disk+Status+Support&amount=4.99&currency_code=USD';
+        }
+
+        function downloadNow() { 
+            window.location.href = 'https://github.com/sheepgamestudio/Mac-disk-status/releases/latest/download/Mac-disk-status.app.zip'; 
+        }
+        
+        // Авто-определение языка браузера
         const userLang = navigator.language.split('-')[0];
-        if (translations[userLang]) changeLang(userLang);
+        if (translations[userLang]) {
+            changeLang(userLang);
+        } else {
+            changeLang('en');
+        }
     </script>
 </body>
 </html>
