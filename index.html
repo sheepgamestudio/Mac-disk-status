@@ -5,77 +5,66 @@
     <title>Mac Disk Status</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #1a1c23;
-            color: #d0d0d8;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-image: radial-gradient(#2a2d3d 15%, transparent 16%), radial-gradient(#2a2d3d 15%, transparent 16%);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
-        }
-        .card {
-            background-color: #242736;
-            border: 4px solid #3b3f5c;
-            box-shadow: 0 8px 0 #14161f;
-            padding: 40px;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 480px;
-        }
-        h1 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 1.2rem;
-            color: #ffbe55;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        p {
-            color: #8f93a2;
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        .btn {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 0.75rem;
-            background-color: #ff5555;
-            color: white;
-            padding: 16px 24px;
-            text-decoration: none;
-            border-radius: 4px;
-            display: inline-block;
-            border-bottom: 4px solid #b33636;
-            transition: transform 0.1s, background-color 0.1s;
-        }
-        .btn:hover {
-            background-color: #ff6b6b;
-        }
-        .btn:active {
-            transform: translateY(2px);
-            border-bottom-width: 2px;
-        }
-        .chef {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #63677b;
-        }
+        body { background-color: #1a1c23; color: #d0d0d8; font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-image: radial-gradient(#2a2d3d 15%, transparent 16%), radial-gradient(#2a2d3d 15%, transparent 16%); background-size: 20px 20px; }
+        .lang-select { position: absolute; top: 20px; right: 20px; background: #242736; border: 2px solid #3b3f5c; color: white; padding: 5px; cursor: pointer; }
+        .card { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; padding: 40px; border-radius: 8px; text-align: center; max-width: 480px; }
+        h1 { font-family: 'Press Start 2P', monospace; font-size: 1.2rem; color: #ffbe55; margin-bottom: 20px; }
+        .btn { cursor: pointer; font-family: 'Press Start 2P', monospace; font-size: 0.75rem; background-color: #ff5555; color: white; padding: 16px 24px; border: none; border-bottom: 4px solid #b33636; border-radius: 4px; transition: transform 0.1s; }
+        
+        /* Модальное окно */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; }
+        .modal-content { background: #242736; padding: 30px; border: 4px solid #3b3f5c; max-width: 300px; text-align: center; }
+        .btn-pay { background: #50fa7b; color: #1a1c23; padding: 10px; width: 100%; margin-bottom: 10px; cursor: pointer; border: none; font-weight: bold; }
+        .btn-free { background: none; color: #8f93a2; border: 1px solid #8f93a2; padding: 5px; cursor: pointer; font-size: 0.7rem; }
     </style>
 </head>
 <body>
+
+    <select id="lang" class="lang-select" onchange="changeLang(this.value)">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="it">Italiano</option>
+        <option value="pt">Português</option>
+        <option value="ja">日本語</option>
+        <option value="uk">Українська</option>
+        <option value="zh">简体中文</option>
+    </select>
+
     <div class="card">
         <h1>MAC DISK STATUS</h1>
-        <p>A cozy and lightweight menu bar utility for macOS to keep an eye on your disk space.</p>
-        
-        <!-- Универсальная ссылка на скачивание файла из последнего релиза -->
-        <a href="https://github.com/sheepgamestudio/Mac-disk-status/releases/latest/download/Mac-disk-status.app.zip" class="btn">DOWNLOAD APP</a>
-        
-        <div class="chef">Kitchen by Master-Chef of SG Studio</div>
+        <p id="desc">A cozy and lightweight menu bar utility for macOS.</p>
+        <button class="btn" onclick="openModal()">DOWNLOAD APP</button>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3>Support SG Studio</h3>
+            <p>Your support helps keep the lights on!</p>
+            <button class="btn-pay" onclick="window.location.href='https://paypal.me/YOUR_LINK_HERE'">Pay $4.99</button>
+            <button class="btn-free" onclick="downloadNow()">Just download for free</button>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: { desc: "A cozy and lightweight menu bar utility for macOS.", btn: "DOWNLOAD APP" },
+            ru: { desc: "Уютная и легкая утилита для мониторинга диска в macOS.", btn: "СКАЧАТЬ" }
+            // Можешь дописать остальные сюда
+        };
+
+        function changeLang(lang) {
+            document.getElementById('desc').innerText = translations[lang]?.desc || translations['en'].desc;
+        }
+
+        function openModal() { document.getElementById('modal').style.display = 'flex'; }
+        function downloadNow() { window.location.href = 'https://github.com/sheepgamestudio/Mac-disk-status/releases/latest/download/Mac-disk-status.app.zip'; }
+        
+        // Авто-определение языка
+        const userLang = navigator.language.split('-')[0];
+        if (translations[userLang]) changeLang(userLang);
+    </script>
 </body>
 </html>
