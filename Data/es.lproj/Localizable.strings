@@ -1,6 +1,9 @@
 "loading" = "Cargando...";
-"connected_disks_header" = "Discos conectados";
+"connected_disks_header" = "Discos conectados:";
 "disk_free_of_total" = "%@ — libre: %@ de %@";
-"launch_at_login" = "Iniciar al iniciar sesión";
+"launch_at_login" = "Abrir al iniciar sesión";
 "quit" = "Salir";
-"login_item_error_title" = "No se pudo cambiar el inicio automático";
+"font_size_label" = "Tamaño de fuente";
+"login_item_error_title" = "Error de inicio";
+"round_values_label" = "Redondear valores";
+"Support Project" = "Apoyar el proyecto";

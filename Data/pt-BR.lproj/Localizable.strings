@@ -1,0 +1,9 @@
+"loading" = "Carregando...";
+"connected_disks_header" = "Discos conectados:";
+"disk_free_of_total" = "%@ — livre: %@ de %@";
+"launch_at_login" = "Abrir ao iniciar sessão";
+"quit" = "Sair";
+"font_size_label" = "Tamanho da fonte";
+"login_item_error_title" = "Erro de inicialização";
+"round_values_label" = "Arredondar valores";
+"Support Project" = "Apoiar o projeto";

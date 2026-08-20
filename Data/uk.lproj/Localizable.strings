@@ -1,0 +1,9 @@
+"loading" = "Завантаження...";
+"connected_disks_header" = "Підключені диски:";
+"disk_free_of_total" = "%@ — вільно: %@ з %@";
+"launch_at_login" = "Запускати при вході до системи";
+"quit" = "Вихід";
+"font_size_label" = "Розмір шрифту";
+"login_item_error_title" = "Помилка автозапуску";
+"round_values_label" = "Округлювати значення";
+"Support Project" = "Підтримати проєкт";

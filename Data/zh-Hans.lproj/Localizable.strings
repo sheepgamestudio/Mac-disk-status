@@ -1,0 +1,9 @@
+"loading" = "加载中...";
+"connected_disks_header" = "已连接的磁盘:";
+"disk_free_of_total" = "%@ — 可用: %@ / 共 %@";
+"launch_at_login" = "登录时打开";
+"quit" = "退出";
+"font_size_label" = "字体大小";
+"login_item_error_title" = "启动项错误";
+"round_values_label" = "取整数值";
+"Support Project" = "支持项目";

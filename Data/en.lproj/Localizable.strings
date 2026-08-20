@@ -1,0 +1,9 @@
+"loading" = "Loading...";
+"connected_disks_header" = "Connected Disks:";
+"disk_free_of_total" = "%@ — free: %@ of %@";
+"launch_at_login" = "Launch at Login";
+"quit" = "Quit";
+"font_size_label" = "Font Size";
+"login_item_error_title" = "Launch at Login Error";
+"round_values_label" = "Round Values";
+"Support Project" = "Support Project";

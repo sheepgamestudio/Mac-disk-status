@@ -1,0 +1,9 @@
+"loading" = "Загрузка...";
+"connected_disks_header" = "Подключенные диски:";
+"disk_free_of_total" = "%@ — своб.: %@ из %@";
+"launch_at_login" = "Запускать при входе в систему";
+"quit" = "Выход";
+"font_size_label" = "Размер шрифта";
+"login_item_error_title" = "Ошибка автозапуска";
+"round_values_label" = "Округлить значение";
+"Support Project" = "Поддержать проект";

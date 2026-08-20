@@ -1,0 +1,9 @@
+"loading" = "Chargement...";
+"connected_disks_header" = "Disques connectés:";
+"disk_free_of_total" = "%@ — libre : %@ sur %@";
+"launch_at_login" = "Ouvrir à la connexion";
+"quit" = "Quitter";
+"font_size_label" = "Taille de la police";
+"login_item_error_title" = "Erreur de lancement";
+"round_values_label" = "Arrondir les valeurs";
+"Support Project" = "Soutenir le projet";

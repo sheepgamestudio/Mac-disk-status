@@ -1,0 +1,9 @@
+"loading" = "Wird geladen...";
+"connected_disks_header" = "Verbundene Festplatten:";
+"disk_free_of_total" = "%@ — frei: %@ von %@";
+"launch_at_login" = "Bei Anmeldung starten";
+"quit" = "Beenden";
+"font_size_label" = "Schriftgröße";
+"login_item_error_title" = "Anmeldefehler";
+"round_values_label" = "Werte runden";
+"Support Project" = "Projekt unterstützen";
