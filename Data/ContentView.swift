@@ -259,7 +259,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func supportApp() {
-        if let url = URL(string: "https://macdiskstatus.app") {
+        if let url = URL(string: "https://mac-disk-status.app") {
             NSWorkspace.shared.open(url)
         }
     }
