@@ -22,35 +22,39 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #1a1c23; color: #d0d0d8; font-family: 'Inter', sans-serif; margin: 0; background-image: radial-gradient(#2a2d3d 15%, transparent 16%), radial-gradient(#2a2d3d 15%, transparent 16%); background-size: 20px 20px; }
+        body { background-color: #1a1c23; color: #e2e8f0; font-family: 'Inter', sans-serif; margin: 0; background-image: radial-gradient(#2a2d3d 15%, transparent 16%), radial-gradient(#2a2d3d 15%, transparent 16%); background-size: 20px 20px; }
         
         /* Top Navigation Bar */
         .navbar { position: fixed; top: 0; width: 100%; height: 60px; background: #242736; border-bottom: 2px solid #3b3f5c; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; box-sizing: border-box; z-index: 100; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
         .nav-logo { font-family: 'Press Start 2P', monospace; font-size: 0.8rem; color: #ffbe55; }
         .lang-select { background: #1a1c23; border: 2px solid #3b3f5c; color: white; padding: 5px 10px; cursor: pointer; border-radius: 4px; font-family: 'Inter', sans-serif; }
         
-        /* Flex Контейнер (Колонки) */
-        .main-container { display: flex; flex-direction: row; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 30px; padding: 100px 20px 40px; max-width: 1000px; margin: 0 auto; }
+        /* Flex Контейнер (Колонки одинаковой высоты/ширины) */
+        .main-container { display: flex; flex-direction: row; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 30px; padding: 100px 20px 40px; max-width: 950px; margin: 0 auto; }
         
-        .card { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; padding: 40px; border-radius: 8px; text-align: center; flex: 1 1 400px; max-width: 500px; box-sizing: border-box; }
-        h1 { font-family: 'Press Start 2P', monospace; font-size: 1.2rem; color: #ffbe55; margin-bottom: 20px; line-height: 1.4; }
-        p { color: #8f93a2; font-size: 0.95rem; margin-bottom: 30px; line-height: 1.6; }
+        .card { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; padding: 40px; border-radius: 8px; text-align: center; flex: 1 1 420px; max-width: 450px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
+        h1 { font-family: 'Press Start 2P', monospace; font-size: 1.1rem; color: #ffbe55; margin-bottom: 20px; line-height: 1.4; }
+        p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 30px; line-height: 1.6; }
         
         /* Кнопка скачивания с белым текстом */
         .btn { cursor: pointer; font-family: 'Press Start 2P', monospace; font-size: 0.75rem; background-color: #ff5555; color: #ffffff !important; padding: 16px 24px; border: none; border-bottom: 4px solid #b33636; border-radius: 4px; transition: transform 0.1s; width: 100%; box-sizing: border-box; text-decoration: none; display: inline-block; }
         .btn:active { transform: translateY(2px); border-bottom-width: 2px; }
         
         /* Support Section (Правая колонка) */
-        .support-box { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; padding: 40px; border-radius: 8px; text-align: center; flex: 1 1 250px; max-width: 300px; box-sizing: border-box; }
-        .support-box h3 { color: #ffbe55; font-family: 'Press Start 2P', monospace; font-size: 0.9rem; margin-top: 0; margin-bottom: 15px; }
-        .support-box p { font-size: 0.85rem; margin-bottom: 30px; }
+        .support-box { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; padding: 40px; border-radius: 8px; text-align: center; flex: 1 1 420px; max-width: 450px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
+        .support-box h3 { color: #ffbe55; font-family: 'Press Start 2P', monospace; font-size: 1.1rem; margin-top: 0; margin-bottom: 20px; }
+        .support-box p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 30px; }
         
-        /* Кнопка доната с белым текстом */
-        .btn-pay { background: #50fa7b; color: #1a1c23; padding: 16px; width: 100%; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: background 0.2s; box-sizing: border-box; text-decoration: none; display: inline-block; }
+        /* Кнопка PayPal */
+        .btn-pay { background: #50fa7b; color: #1a1c23; padding: 16px; width: 100%; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: background 0.2s; box-sizing: border-box; text-decoration: none; display: inline-block; margin-bottom: 12px; }
         .btn-pay:hover { background: #69ff8c; }
 
+        /* Кнопка Open Collective */
+        .btn-oc { background: #3b82f6; color: #ffffff !important; padding: 16px; width: 100%; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: background 0.2s; box-sizing: border-box; text-decoration: none; display: inline-block; }
+        .btn-oc:hover { background: #2563eb; }
+
         /* Подпись автора внизу */
-        .author { margin-top: 25px; font-size: 0.75rem; color: #5a5f78; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
+        .author { margin-top: 25px; font-size: 0.8rem; color: #94a3b8; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
 
         /* Мобильная адаптация */
         @media (max-width: 768px) {
@@ -107,72 +111,80 @@
     <div class="main-container">
         <!-- Левая карточка: Приложение -->
         <div class="card">
-            <h1>MAC DISK STATUS</h1>
-            <p id="desc">A lightweight, clean, and completely free menu bar utility for macOS. Keep an eye on your storage space in real-time without any clutter.</p>
-            <button class="btn" id="dl-btn" onclick="downloadNow()">DOWNLOAD APP</button>
-            <div class="author">by Master-Chef of SG Studio</div>
+            <div>
+                <h1>MAC DISK STATUS</h1>
+                <p id="desc">A lightweight, clean, and completely free menu bar utility for macOS. Keep an eye on your storage space in real-time without any clutter.</p>
+            </div>
+            <div>
+                <button class="btn" id="dl-btn" onclick="downloadNow()">DOWNLOAD APP</button>
+                <div class="author">by Master-Chef of SG Studio</div>
+            </div>
         </div>
 
         <!-- Правая карточка: Поддержка -->
         <div class="support-box">
-            <h3 id="supp-title">Support SG Studio</h3>
-            <p id="supp-text">Your support helps keep development alive!</p>
-            <button class="btn-pay" onclick="payWithPayPal()">Support $4.99</button>
+            <div>
+                <h3 id="supp-title">Support SG Studio</h3>
+                <p id="supp-text">Your support helps keep development alive and keeps our rescued animals warm!</p>
+            </div>
+            <div>
+                <button class="btn-pay" onclick="payWithPayPal()">Support via PayPal ($4.99)</button>
+                <a href="https://opencollective.com/sg-studio" target="_blank" class="btn-oc" id="oc-btn">Support via Open Collective</a>
+            </div>
         </div>
     </div>
 
     <script>
-        // Человечные переводы без кривых SEO-конструкций на экране (ключи зашиты в мета-теги выше)
         const translations = {
             en: { 
                 title: "Mac Disk Status — Free Menu Bar Storage Monitor",
                 desc: "A lightweight, clean, and completely free menu bar utility for macOS. Keep an eye on your storage space in real-time without any clutter.",
-                btn: "DOWNLOAD APP", suppTitle: "Support SG Studio", suppText: "Your support helps keep development alive!"
+                btn: "DOWNLOAD APP", suppTitle: "Support SG Studio", suppText: "Your support helps keep development alive and keeps our rescued animals warm!", ocBtn: "Support via Open Collective"
             },
             ru: { 
                 title: "Mac Disk Status — Монитор места на диске для Mac",
                 desc: "Удобная, легкая и полностью бесплатная утилита для строки меню macOS. Следите за свободным местом на диске в реальном времени без лишней суеты.",
-                btn: "СКАЧАТЬ", suppTitle: "Поддержать SG Studio", suppText: "Ваша поддержка помогает развитию проекта!" 
+                btn: "СКАЧАТЬ", suppTitle: "Поддержать SG Studio", suppText: "Ваша поддержка помогает развитию проекта и помогает согреть наших спасенных животных!", ocBtn: "Поддержать через Open Collective" 
             },
             de: { 
                 title: "Mac Disk Status — Speicherplatz-Monitor für Mac",
                 desc: "Ein leichtgewichtigen und völlig kostenlosen Menüleisten-Tool für macOS, um Ihren Speicherplatz im Blick zu behalten.",
-                btn: "HERUNTERLADEN", suppTitle: "SG Studio unterstützen", suppText: "Deine Hilfe hält das Projekt am Leben!" 
+                btn: "HERUNTERLADEN", suppTitle: "SG Studio unterstützen", suppText: "Deine Hilfe hält das Projekt am Leben und hält unsere geretteten Tiere warm!", ocBtn: "Über Open Collective unterstützen" 
             },
             es: { 
                 title: "Mac Disk Status — Monitor de almacenamiento para Mac",
                 desc: "Una utilidad de barra de menú ligera y completamente gratuita para macOS para controlar tu espacio en disco.",
-                btn: "DESCARGAR", suppTitle: "Apoya a SG Studio", suppText: "¡Tu apoyo ayuda a mantener vivo el proyecto!" 
+                btn: "DESCARGAR", suppTitle: "Apoya a SG Studio", suppText: "¡Tu apoyo ayuda a mantener vivo el proyecto y mantiene abrigados a nuestros animales rescatados!", ocBtn: "Apoyar via Open Collective" 
             },
             fr: { 
                 title: "Mac Disk Status — Moniteur de stockage pour Mac",
                 desc: "Un utilitaire de barre de menu léger et entièrement gratuit pour macOS pour garder un œil sur votre espace disque.",
-                btn: "TÉLÉCHARGER", suppTitle: "Soutenir SG Studio", suppText: "Votre soutien aide à faire vivre le projet !" 
+                btn: "TÉLÉCHARGER", suppTitle: "Soutenir SG Studio", suppText: "Votre soutien aide à faire vivre le projet et garde nos animaux sauvés au chaud !", ocBtn: "Soutenir via Open Collective" 
             },
             it: { 
                 title: "Mac Disk Status — Monitor di archiviazione per Mac",
                 desc: "Un'utilità della barra dei menu leggera e completamente gratuita per macOS per monitorare lo spazio su disco.",
-                btn: "SCARICA", suppTitle: "Supporta SG Studio", suppText: "Il tuo supporto aiuta a mantenere vivo il progetto!" 
+                btn: "SCARICA", suppTitle: "Supporta SG Studio", suppText: "Il tuo supporto aiuta a mantenere vivo il progetto e tiene al caldo i nostri animali salvati!", ocBtn: "Supporta via Open Collective" 
             },
             pt: { 
                 title: "Mac Disk Status — Monitor de armazenamento para Mac",
                 desc: "Um utilitário de barra de menus leve e totalmente gratuito para macOS para monitorar seu espaço em disco.",
-                btn: "BAIXAR", suppTitle: "Apoie a SG Studio", suppText: "Seu apoio ajuda a manter o projeto vivo!" 
+                btn: "BAIXAR", suppTitle: "Apoie a SG Studio", suppText: "Seu apoio ajuda a manter o projeto vivo e mantém nossos animais resgatados aquecidos!", ocBtn: "Apoiar via Open Collective" 
             },
             ja: { 
                 title: "Mac Disk Status — Mac用ストレージモニター",
                 desc: "macOS向けの軽量で完全に無料のメニューバーユーティリティ。ディスク空き容量をリアルタイムで確認できます。",
-                btn: "ダウンロード", suppTitle: "SG Studioをサポート", suppText: "あなたの支援が開発の支えになります！" 
+                btn: "ダウンロード", suppTitle: "SG Studioをサポート", suppText: "あなたの支援が開発の支えになり、保護された動物たちを温かく保ちます！", ocBtn: "Open Collectiveでサポート" 
             },
             uk: { 
                 title: "Mac Disk Status — Монітор місця на диску для Mac",
                 desc: "Зручна, легка та повністю безплатна утиліта для рядка меню macOS. Стежте за вільним місцем на диску в реальному часі.",
-                btn: "ЗАВАНТАЖИТИ", suppTitle: "Підтримати SG Studio", suppText: "Ваша підтримка допомагає розвитку проєкту!" 
+                btn: "ЗАВАНТАЖИТИ", suppTitle: "Підтримати SG Studio", suppText: "Ваша підтримка допомагає розвитку проєкту та зігріти наших врятованих тварин!", ocBtn: "Підтримати через Open Collective" 
             },
             zh: { 
                 title: "Mac Disk Status — Mac 磁盘空间监控工具",
                 desc: "macOS 100% 免费且轻量的菜单栏实用程序，让您随时随地掌握磁盘剩余空间。",
-                btn: "下载应用", suppTitle: "支持 SG Studio", suppText: "您的支持让开发得以继续！" 
+                btn: "下载应用", suppTitle: "支持 SG Studio", suppText: "您的支持让开发得以继续，并让我们的救助动物 保持温暖！", ocBtn: "通过 Open Collective 支持" 
             }
         };
 
@@ -183,6 +195,7 @@
             document.getElementById('dl-btn').innerText = t.btn;
             document.getElementById('supp-title').innerText = t.suppTitle;
             document.getElementById('supp-text').innerText = t.suppText;
+            document.getElementById('oc-btn').innerText = t.ocBtn;
             
             document.title = t.title;
             const metaDesc = document.querySelector('meta[name="description"]');
