@@ -69,13 +69,14 @@
         .btn-oc { background: #ffffff; color: #1a1c23 !important; }
         .btn-oc:hover { background: #e2e8f0; }
 
-        /* Контейнер для демонстрационного видео внизу */
+        /* Контейнер для видео */
         .video-container { max-width: 930px; margin: 0 auto 50px; padding: 0 20px; box-sizing: border-box; }
         .video-box { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; border-radius: 8px; overflow: hidden; width: 100%; }
         .video-box video { width: 100%; height: auto; display: block; }
 
-        /* Подпись автора */
-        .author { margin-top: 20px; font-size: 0.8rem; color: #94a3b8; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
+        /* Системные требования и подпись под кнопкой */
+        .sys-req { margin-top: 15px; font-size: 0.8rem; color: #94a3b8; font-family: 'Inter', sans-serif; }
+        .author { margin-top: 6px; font-size: 0.75rem; color: #64748b; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
 
         @media (max-width: 768px) {
             .main-container { flex-direction: column; align-items: center; }
@@ -85,7 +86,7 @@
     </style>
 
     <meta property="og:title" content="Mac Disk Status — Free Menu Bar Storage Monitor">
-    <meta property="og:description" content="A lightweight menu bar utility for macOS to keep an eye on your disk space.">
+    <meta property="og:description" content="A lightweight, clean, and completely free menu bar utility for macOS.">
     <meta property="og:image" content="https://mac-disk-status.app/banner.png">
     <meta property="og:url" content="https://mac-disk-status.app/">
     <meta property="og:type" content="website">
@@ -104,7 +105,7 @@
         "price": "0",
         "priceCurrency": "USD"
       },
-      "description": "A lightweight menu bar utility for macOS to keep an eye on your disk space."
+      "description": "A lightweight, clean, and completely free menu bar utility for macOS."
     }
     </script>
 </head>
@@ -139,6 +140,7 @@
             </div>
             <div>
                 <button class="btn" id="dl-btn" onclick="downloadNow()">DOWNLOAD APP</button>
+                <div class="sys-req">Requires: macOS Monterey or higher</div>
                 <div class="author">by Master-Chef of SG Studio</div>
             </div>
         </div>
@@ -159,7 +161,7 @@
         </div>
     </div>
 
-    <!-- Нижний блок с видео-презентацией работы утилиты -->
+    <!-- Нижний блок с видео-презентацией -->
     <div class="video-container">
         <div class="video-box">
             <video autoplay loop muted playsinline>
@@ -239,7 +241,6 @@
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) metaDesc.setAttribute("content", t.desc);
             
-            document.getElementById('lang').value, lang;
             document.getElementById('lang').value = lang;
         }
 
