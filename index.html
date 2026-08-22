@@ -43,19 +43,32 @@
         /* Support Section */
         .support-box { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; padding: 40px; border-radius: 8px; text-align: center; flex: 1 1 420px; max-width: 450px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
         .support-box h3 { color: #ffbe55; font-family: 'Press Start 2P', monospace; font-size: 1.1rem; margin-top: 0; margin-bottom: 20px; }
-        .support-box p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 25px; }
+        .support-box p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px; }
         
+        /* Общие стили для кнопок донатов */
+        .support-box a, .support-box button {
+            padding: 12px; width: 100%; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.85rem; transition: background 0.2s; box-sizing: border-box; text-decoration: none; display: inline-block; margin-bottom: 8px;
+        }
+
         /* Кнопка PayPal */
-        .btn-pay { background: #50fa7b; color: #1a1c23; padding: 14px; width: 100%; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: background 0.2s; box-sizing: border-box; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+        .btn-pay { background: #50fa7b; color: #1a1c23; }
         .btn-pay:hover { background: #69ff8c; }
 
-        /* Кнопка Open Collective (теперь белая) */
-        .btn-oc { background: #ffffff; color: #1a1c23 !important; padding: 14px; width: 100%; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: background 0.2s; box-sizing: border-box; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+        /* Кнопка Open Collective (белая) */
+        .btn-oc { background: #ffffff; color: #1a1c23 !important; }
         .btn-oc:hover { background: #e2e8f0; }
 
-        /* Кнопка Buy Me a Coffee */
-        .btn-bmc { background: #ffdd00; color: #000000 !important; padding: 14px; width: 100%; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: background 0.2s; box-sizing: border-box; text-decoration: none; display: inline-block; }
+        /* Кнопка Buy Me a Coffee (желтая) */
+        .btn-bmc { background: #ffdd00; color: #000000 !important; }
         .btn-bmc:hover { background: #f4d000; }
+
+        /* Кнопка GitHub Sponsors (темно-коричневая / под стиль Git) */
+        .btn-gh { background: #4a3525; color: #ffd8a8 !important; border: 1px solid #6b4c35; }
+        .btn-gh:hover { background: #5c432f; }
+
+        /* Кнопка Ko-fi (синяя) */
+        .btn-kofi { background: #29abe0; color: #ffffff !important; }
+        .btn-kofi:hover { background: #1f94c4; }
 
         /* Подпись автора */
         .author { margin-top: 25px; font-size: 0.8rem; color: #94a3b8; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
@@ -122,7 +135,7 @@
             </div>
         </div>
 
-        <!-- Правая карточка -->
+        <!-- Правая карточка: Все способы поддержки -->
         <div class="support-box">
             <div>
                 <h3 id="supp-title">Support SG Studio</h3>
@@ -130,8 +143,10 @@
             </div>
             <div>
                 <button class="btn-pay" onclick="payWithPayPal()">Support via PayPal ($4.99)</button>
-                <a href="https://opencollective.com/sg-studio" target="_blank" class="btn-oc" id="oc-btn">Support via Open Collective</a>
                 <a href="https://buymeacoffee.com/sheepgamestudio" target="_blank" class="btn-bmc" id="bmc-btn">☕ Buy Me a Coffee</a>
+                <a href="https://github.com/sponsors/sheepgamestudio" target="_blank" class="btn-gh" id="gh-btn">🧡 GitHub Sponsors</a>
+                <a href="https://ko-fi.com/sheepgamestudio" target="_blank" class="btn-kofi" id="kofi-btn">☕ Ko-fi</a>
+                <a href="https://opencollective.com/sg-studio" target="_blank" class="btn-oc" id="oc-btn">Support via Open Collective</a>
             </div>
         </div>
     </div>
@@ -141,52 +156,52 @@
             en: { 
                 title: "Mac Disk Status — Free Menu Bar Storage Monitor",
                 desc: "A lightweight, clean, and completely free menu bar utility for macOS. Keep an eye on your storage space in real-time without any clutter.",
-                btn: "DOWNLOAD APP", suppTitle: "Support SG Studio", suppText: "Your support helps keep development alive and keeps our rescued animals warm!", ocBtn: "Support via Open Collective", bmcBtn: "☕ Buy Me a Coffee"
+                btn: "DOWNLOAD APP", suppTitle: "Support SG Studio", suppText: "Your support helps keep development alive and keeps our rescued animals warm!", ocBtn: "Support via Open Collective", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi"
             },
             ru: { 
                 title: "Mac Disk Status — Монитор места на диске для Mac",
                 desc: "Удобная, легкая и полностью бесплатная утилита для строки меню macOS. Следите за свободным местом на диске в реальном времени без лишней суеты.",
-                btn: "СКАЧАТЬ", suppTitle: "Поддержать SG Studio", suppText: "Ваша поддержка помогает развитию проекта и помогает согреть наших спасенных животных!", ocBtn: "Поддержать через Open Collective", bmcBtn: "☕ Buy Me a Coffee" 
+                btn: "СКАЧАТЬ", suppTitle: "Поддержать SG Studio", suppText: "Ваша поддержка помогает развитию проекта и помогает согреть наших спасенных животных!", ocBtn: "Поддержать через Open Collective", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi" 
             },
             de: { 
                 title: "Mac Disk Status — Speicherplatz-Monitor für Mac",
                 desc: "Ein leichtgewichtigen und völlig kostenlosen Menüleisten-Tool für macOS, um Ihren Speicherplatz im Blick zu behalten.",
-                btn: "HERUNTERLADEN", suppTitle: "SG Studio unterstützen", suppText: "Deine Hilfe hält das Projekt am Leben und hält unsere geretteten Tiere warm!", ocBtn: "Über Open Collective unterstützen", bmcBtn: "☕ Buy Me a Coffee" 
+                btn: "HERUNTERLADEN", suppTitle: "SG Studio unterstützen", suppText: "Deine Hilfe hält das Projekt am Leben und hält unsere geretteten Tiere warm!", ocBtn: "Über Open Collective unterstützen", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi" 
             },
             es: { 
                 title: "Mac Disk Status — Monitor de almacenamiento para Mac",
                 desc: "Una utilidad de barra de menú ligera y completamente gratuita para macOS para controlar tu espacio en disco.",
-                btn: "DESCARGAR", suppTitle: "Apoya a SG Studio", suppText: "¡Tu apoyo ayuda a mantener vivo el proyecto y mantiene abrigados a nuestros animales rescatados!", ocBtn: "Apoyar via Open Collective", bmcBtn: "☕ Buy Me a Coffee" 
+                btn: "DESCARGAR", suppTitle: "Apoya a SG Studio", suppText: "¡Tu apoyo ayuda a mantener vivo el proyecto y mantiene abrigados a nuestros animales rescatados!", ocBtn: "Apoyar via Open Collective", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi" 
             },
             fr: { 
                 title: "Mac Disk Status — Moniteur de stockage pour Mac",
                 desc: "Un utilitaire de barre de menu léger et entièrement gratuit pour macOS pour garder un œil sur votre espace disque.",
-                btn: "TÉLÉCHARGER", suppTitle: "Soutenir SG Studio", suppText: "Votre soutien aide à faire vivre le projet et garde nos animaux sauvés au chaud !", ocBtn: "Soutenir via Open Collective", bmcBtn: "☕ Buy Me a Coffee" 
+                btn: "TÉLÉCHARGER", suppTitle: "Soutenir SG Studio", suppText: "Votre soutien aide à faire vivre le projet et garde nos animaux sauvés au chaud !", ocBtn: "Soutenir via Open Collective", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi" 
             },
             it: { 
                 title: "Mac Disk Status — Monitor di archiviazione per Mac",
                 desc: "Un'utilità della barra dei menu leggera e completamente gratuita per macOS per monitorare lo spazio su disco.",
-                btn: "SCARICA", suppTitle: "Supporta SG Studio", suppText: "Il tuo supporto aiuta a mantenere vivo il progetto e tiene al caldo i nostri animali salvati!", ocBtn: "Supporta via Open Collective", bmcBtn: "☕ Buy Me a Coffee" 
+                btn: "SCARICA", suppTitle: "Supporta SG Studio", suppText: "Il tuo supporto aiuta a mantenere vivo il progetto e tiene al caldo i nostri animali salvati!", ocBtn: "Supporta via Open Collective", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi" 
             },
             pt: { 
                 title: "Mac Disk Status — Monitor de armazenamento para Mac",
                 desc: "Um utilitário de barra de menus leve e totalmente gratuito para macOS para monitorar seu espaço em disco.",
-                btn: "BAIXAR", suppTitle: "Apoie a SG Studio", suppText: "Seu apoio ajuda a manter o projeto vivo e mantém nossos animais resgatados aquecidos!", ocBtn: "Apoiar via Open Collective", bmcBtn: "☕ Buy Me a Coffee" 
+                btn: "BAIXAR", suppTitle: "Apoie a SG Studio", suppText: "Seu apoio ajuda a manter o projeto vivo e mantém nossos animais resgatados aquecidos!", ocBtn: "Apoiar via Open Collective", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi" 
             },
             ja: { 
                 title: "Mac Disk Status — Mac用ストレージモニター",
                 desc: "macOS向けの軽量で完全に無料のメニューバーユーティリティ。ディスク空き容量をリアルタイムで確認できます。",
-                btn: "ダウンロード", suppTitle: "SG Studioをサポート", suppText: "あなたの支援が開発の支えになり、保護された動物たちを温かく保ちます！", ocBtn: "Open Collectiveでサポート", bmcBtn: "☕ Buy Me a Coffee" 
+                btn: "ダウンロード", suppTitle: "SG Studioをサポート", suppText: "あなたの支援が開発の支えになり、保護された動物たちを温かく保ちます！", ocBtn: "Open Collectiveでサポート", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi" 
             },
             uk: { 
                 title: "Mac Disk Status — Монітор місця на диску для Mac",
                 desc: "Зручна, легка та повністю безплатна утиліта для рядка меню macOS. Стежте за вільним місцем на диску в реальному часі.",
-                btn: "ЗАВАНТАЖИТИ", suppTitle: "Підтримати SG Studio", suppText: "Ваша підтримка допомагає розвитку проєкту та зігріти наших врятованих тварин!", ocBtn: "Підтримати через Open Collective", bmcBtn: "☕ Buy Me a Coffee" 
+                btn: "ЗАВАНТАЖИТИ", suppTitle: "Підтримати SG Studio", suppText: "Ваша підтримка допомагає розвитку проєкту та зігріти наших врятованих тварин!", ocBtn: "Підтримати через Open Collective", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi" 
             },
             zh: { 
                 title: "Mac Disk Status — Mac 磁盘空间监控工具",
                 desc: "macOS 100% 免费且轻量的菜单栏实用程序，让您随时随地掌握磁盘剩余空间。",
-                btn: "下载应用", suppTitle: "支持 SG Studio", suppText: "您的支持让开发得以继续，并让我们的救助动物 保持温暖！", ocBtn: "通过 Open Collective 支持", bmcBtn: "☕ Buy Me a Coffee" 
+                btn: "下载应用", suppTitle: "支持 SG Studio", suppText: "您的支持让开发得以继续，并让我们的救助动物 保持温暖！", ocBtn: "通过 Open Collective 支持", bmcBtn: "☕ Buy Me a Coffee", ghBtn: "🧡 GitHub Sponsors", kofiBtn: "☕ Ko-fi" 
             }
         };
 
@@ -199,6 +214,8 @@
             document.getElementById('supp-text').innerText = t.suppText;
             document.getElementById('oc-btn').innerText = t.ocBtn;
             document.getElementById('bmc-btn').innerText = t.bmcBtn;
+            document.getElementById('gh-btn').innerText = t.ghBtn;
+            document.getElementById('kofi-btn').innerText = t.kofiBtn;
             
             document.title = t.title;
             const metaDesc = document.querySelector('meta[name="description"]');
