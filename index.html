@@ -34,8 +34,12 @@
         
         .card { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; padding: 40px; border-radius: 8px; text-align: center; flex: 1 1 420px; max-width: 450px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
         h1 { font-family: 'Press Start 2P', monospace; font-size: 1.1rem; color: #ffbe55; margin-bottom: 20px; line-height: 1.4; }
-        p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 30px; line-height: 1.6; }
+        p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6; }
         
+        /* Стили для пиксельного котика */
+        .cat-container { margin: 15px 0; }
+        .cat-img { max-width: 140px; height: auto; image-rendering: pixelated; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4)); }
+
         /* Кнопка скачивания */
         .btn { cursor: pointer; font-family: 'Press Start 2P', monospace; font-size: 0.75rem; background-color: #ff5555; color: #ffffff !important; padding: 16px 24px; border: none; border-bottom: 4px solid #b33636; border-radius: 4px; transition: transform 0.1s; width: 100%; box-sizing: border-box; text-decoration: none; display: inline-block; }
         .btn:active { transform: translateY(2px); border-bottom-width: 2px; }
@@ -43,35 +47,30 @@
         /* Support Section */
         .support-box { background-color: #242736; border: 4px solid #3b3f5c; box-shadow: 0 8px 0 #14161f; padding: 40px; border-radius: 8px; text-align: center; flex: 1 1 420px; max-width: 450px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
         .support-box h3 { color: #ffbe55; font-family: 'Press Start 2P', monospace; font-size: 1.1rem; margin-top: 0; margin-bottom: 20px; }
-        .support-box p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px; }
+        .support-box p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 25px; }
         
-        /* Общие стили для кнопок донатов */
+        /* Кнопки донатов */
         .support-box a, .support-box button {
             padding: 12px; width: 100%; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.85rem; transition: background 0.2s; box-sizing: border-box; text-decoration: none; display: inline-block; margin-bottom: 8px;
         }
 
-        /* Кнопка PayPal */
         .btn-pay { background: #50fa7b; color: #1a1c23; }
         .btn-pay:hover { background: #69ff8c; }
 
-        /* Кнопка Open Collective (белая) */
-        .btn-oc { background: #ffffff; color: #1a1c23 !important; }
-        .btn-oc:hover { background: #e2e8f0; }
-
-        /* Кнопка Buy Me a Coffee (желтая) */
         .btn-bmc { background: #ffdd00; color: #000000 !important; }
         .btn-bmc:hover { background: #f4d000; }
 
-        /* Кнопка GitHub Sponsors (темно-коричневая / под стиль Git) */
         .btn-gh { background: #4a3525; color: #ffd8a8 !important; border: 1px solid #6b4c35; }
         .btn-gh:hover { background: #5c432f; }
 
-        /* Кнопка Ko-fi (синяя) */
         .btn-kofi { background: #29abe0; color: #ffffff !important; }
         .btn-kofi:hover { background: #1f94c4; }
 
+        .btn-oc { background: #ffffff; color: #1a1c23 !important; }
+        .btn-oc:hover { background: #e2e8f0; }
+
         /* Подпись автора */
-        .author { margin-top: 25px; font-size: 0.8rem; color: #94a3b8; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
+        .author { margin-top: 20px; font-size: 0.8rem; color: #94a3b8; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
 
         @media (max-width: 768px) {
             .main-container { flex-direction: column; align-items: center; }
@@ -123,11 +122,14 @@
     </nav>
 
     <div class="main-container">
-        <!-- Левая карточка -->
+        <!-- Левая карточка с котиком -->
         <div class="card">
             <div>
                 <h1>MAC DISK STATUS</h1>
                 <p id="desc">A lightweight, clean, and completely free menu bar utility for macOS. Keep an eye on your storage space in real-time without any clutter.</p>
+                <div class="cat-container">
+                    <img src="cat.png" alt="Rescued Cat" class="cat-img">
+                </div>
             </div>
             <div>
                 <button class="btn" id="dl-btn" onclick="downloadNow()">DOWNLOAD APP</button>
